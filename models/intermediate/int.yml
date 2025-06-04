@@ -1,0 +1,19 @@
+
+version: 2
+
+models:
+    - name: int_orders
+      description: "
+          order table containing transactions from the ecommerce company 'thelook'.
+
+          - Primary key is the order_id, should be unique and shouldn't contain null values.
+          - Contains foreign key 'user_id' to be used on users table
+        
+        "
+      columns:
+          - name: order_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+          
