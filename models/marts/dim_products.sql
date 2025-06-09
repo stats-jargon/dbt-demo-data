@@ -1,3 +1,3 @@
 select
     *
-from {{ ref('int_order_items') }}
+from {{ ref('int_products') }}
