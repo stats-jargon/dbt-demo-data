@@ -2,7 +2,7 @@
 version: 2
 
 models:
-    - name: int_orders
+    - name: fct_orders
       description: "
           order table containing transactions from the ecommerce company 'thelook'.
 
@@ -26,7 +26,7 @@ models:
           - name: number_of_items
             description: "number of items (or products) within an order"
 
-    - name: int_order_items
+    - name: dim_order_items
       description: "
           order items table containing transactions and items from the ecommerce company 'thelook'.
 
@@ -54,7 +54,7 @@ models:
           - name: sale_price
             description: "the price of the order item sold for"
 
-    - name: int_products
+    - name: dim_products
       description: "
           products contains information about the product, such as name of product, brand, department, and retail price.
 
