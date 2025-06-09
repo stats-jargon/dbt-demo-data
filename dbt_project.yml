@@ -36,10 +36,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  intermediate:
-    # Applies to all files under models/example/
-    int_orders:
+  my_new_project:
+    intermediate:
+      +enabled: true
       +materialized: table
-  marts:
-    fct_orders:
+      +schema: intermediate
+
+    marts:
+      +enabled: true
       +materialized: table
+      +schema: marts

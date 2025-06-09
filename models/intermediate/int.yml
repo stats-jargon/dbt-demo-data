@@ -16,4 +16,13 @@ models:
             tests:
                 - unique
                 - not_null
+
+          - name: user_id
+            description: "foreign key to the users table"
+
+          - name: shipped_at_ts
+            description: "when the order was shipped. Is a timestamp in UTC"
+
+          - name: number_of_items
+            description: "number of items (or products) within an order"
           
