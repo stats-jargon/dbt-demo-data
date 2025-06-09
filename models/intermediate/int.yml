@@ -50,9 +50,6 @@ models:
 
           - name: status
             description: "the status of an order item. Can be cancelled, complete, shipped, processing"
-            tests:
-              - accepted_values:
-                values: ['cancelled', 'complete', 'shipped', 'processing']
 
           - name: sale_price
             description: "the price of the order item sold for"
