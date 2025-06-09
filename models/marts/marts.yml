@@ -76,12 +76,12 @@ models:
           - name: brand
             description: "The brand of the product"
 
-          - name: accessories
+          - name: category
             description: "
-                Accessory category associated to the product,
+                Category associated to the product,
 
                 Includes plus, swim, active, socks & hosiery, socks, etc
-                
+
               "
 
           - name: department
