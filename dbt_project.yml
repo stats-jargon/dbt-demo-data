@@ -36,13 +36,21 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
+  dbt-demo-data:
+    +materialized: view
+
     intermediate:
       +enabled: true
       +materialized: table
       +schema: intermediate
 
+      int_orders:
+        +schema: int_orders
+
     marts:
       +enabled: true
       +materialized: table
       +schema: marts
+
+      orders:
+        +schema: orders
