@@ -24,7 +24,7 @@ models:
             description: "when the order was shipped. Is a timestamp in UTC"
 
           - name: number_of_items
-            description: "number of items (or products) within an order"
+            description: "number of items (or products) within an order. Can be used as a proxy for units sold"
 
     - name: dim_order_items
       description: "
