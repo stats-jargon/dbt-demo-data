@@ -35,7 +35,9 @@ clean-targets: # directories to be removed by `dbt clean`
 
 models:
   dbt-demo-data:
-    +materialized: view
+    staging:
+      +schema: staging
+      +materialized: view
 
     intermediate:
       +enabled: true
