@@ -8,7 +8,6 @@ sources:
       - name: distribution_centers
       - name: events
       - name: inventory_items
-      - name: order_items
       - name: orders
       - name: order_items
       - name: products
