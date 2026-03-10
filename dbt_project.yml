@@ -40,17 +40,24 @@ models:
       +materialized: view
 
     intermediate:
-      +enabled: true
-      +materialized: table
-      +schema: intermediate
-
+      +database: intermediate
       int_orders:
         +schema: int_orders
+        int_orders:
+          +materialized: table
+          # +on_schema_change: 'fail'
+        int_order_history:
+          +materialized: table
+        int_users:
+          +materialized: table
 
     marts:
-      +enabled: true
-      +materialized: table
-      +schema: marts
-
+      +database: marts
       orders:
         +schema: orders
+        fct_orders:
+          +materialized: table
+      users:
+        +schema: users
+        fct_users:
+          +materialized: table
