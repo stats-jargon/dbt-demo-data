@@ -21,7 +21,6 @@ models:
       +materialized: view
 
     intermediate:
-      +database: intermediate
       int_events:
         +schema: int_events
         int_events:
@@ -49,7 +48,6 @@ models:
           +materialized: table
 
     marts:
-      +database: marts
       orders:
         +schema: orders
         fct_orders:
