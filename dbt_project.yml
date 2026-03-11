@@ -15,25 +15,51 @@ clean-targets: ["target", "dbt_packages"]
 
 models:
   dbt_demo_data:
+
     staging:
       +schema: staging
       +materialized: view
 
     intermediate:
       +database: intermediate
-      +schema: intermediate
-      +materialized: table
+      int_events:
+        +schema: int_events
+        int_events:
+          +materialized: table
       int_orders:
         +schema: int_orders
+        int_order_history:
+          +materialized: table
+        int_order_items:
+          +materialized: table
+        int_orders:
+          +materialized: table
+      int_products:
+        int_distribution_centers:
+          +materialized: table
+        int_inventory_items:
+          +materialized: table
+        int_products:
+          +materialized: table
+
+      int_users:
+        +schema: int_users
+        int_users:
+          +materialized: table
 
     marts:
       +database: marts
-      +materialized: table
-      fct_orders:
+      orders:
         +schema: orders
-      dim_order_items:
-        +schema: orders
-      fct_users:
+        fct_orders:
+          +materialized: table
+        dim_order_items:
+          +materialized: table
+      users:
         +schema: users
-      dim_products:
-        +schema: users
+        fct_users:
+          +materialized: table
+      products:
+        +schema: products
+        dim_products:
+          +materialized: table
