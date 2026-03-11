@@ -35,6 +35,7 @@ models:
         int_orders:
           +materialized: table
       int_products:
+        +schema: int_products
         int_distribution_centers:
           +materialized: table
         int_inventory_items:
