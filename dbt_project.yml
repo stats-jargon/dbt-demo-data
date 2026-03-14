@@ -28,7 +28,11 @@ models:
       int_orders:
         +schema: int_orders
         int_order_history:
-          +materialized: table
+          +materialized: incremental
+          +unique_key: order_history_id
+        #  +contract:
+        #    enforced: true
+        #  +on_schema_change: 'fail'
         int_order_items:
           +materialized: table
         int_orders:
