@@ -6,6 +6,7 @@ with
         FROM 
             {{ source("src_thelook_orders", "orders") }} src
         {% if is_incremental() %}
+        -- In a real world scenario we would ideally use an upstream CDC timestamp to denote the updates to the records here
         WHERE created_at > (SELECT MAX(created_at_ts) FROM {{ this }})
         {% endif %}
     )
