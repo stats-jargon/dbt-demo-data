@@ -1,16 +1,28 @@
 with
-    base as (
-        select
-            order_id,
-            user_id,
-            lower(status) as status,
-            lower(gender) as gender,
-            created_at as created_at_ts,
-            returned_at as returned_at_ts,
-            shipped_at as shipped_at_ts,
-            delivered_at as delivered_at_ts,
-            num_of_item as number_of_items
-        from {{ source("src_thelook_orders", "orders") }}
+
+    increment_orders AS (
+        SELECT
+            order_id
+        FROM 
+            {{ source("src_thelook_orders", "orders") }} src
+        {% if is_incremental() %}
+        -- In a real world scenario we would ideally use an upstream CDC timestamp to denote the updates to the records here
+        WHERE created_at > (SELECT MAX(created_at_ts) FROM {{ this }})
+        {% endif %}
     )
 
-select * from base
+select
+    src.order_id,
+    src.user_id,
+    LOWER(src.status) AS status,
+    LOWER(src.gender) AS gender,
+    src.created_at AS created_at_ts,
+    src.returned_at AS returned_at_ts,
+    src.shipped_at AS shipped_at_ts,
+    src.delivered_at AS delivered_at_ts,
+    src.num_of_item AS number_of_items
+FROM 
+    {{ source("src_thelook_orders", "orders") }} src
+JOIN
+    increment_orders io
+    ON src.order_id = io.order_id 
