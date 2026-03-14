@@ -36,7 +36,8 @@ models:
         int_order_items:
           +materialized: table
         int_orders:
-          +materialized: table
+          +materialized: incremental
+          +unique_key: order_id
       int_products:
         +schema: int_products
         int_distribution_centers:
