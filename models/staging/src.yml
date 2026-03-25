@@ -13,3 +13,13 @@ sources:
       - name: products
       - name: thelook_ecommerce-table
       - name: users
+  - name: hw_billing_stg
+    database: flawless-outlet-461820-j3
+    schema: staging_headway
+    tables:
+      - name: base_headway__billing_appointment_details
+  - name: hw_revenue_subledger_stg
+    database: flawless-outlet-461820-j3
+    schema: ledger_staging
+    tables:
+      - name: revenue_subledger_preliminary

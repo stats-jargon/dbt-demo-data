@@ -52,6 +52,11 @@ models:
         int_users:
           +materialized: table
 
+      int_hw:
+        +schema: int_hw
+        fct_entity_reconciliation:
+          +materialized: table
+
     marts:
       orders:
         +schema: orders
